@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="./images/favicon-32x32.png"
+    />
+
+    <title>Frontend Mentor | NFT preview card component</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      /* font-family: 'Outfit', sans-serif; */
+      .attribution {
+        position: absolute;
+        bottom: 0;
+        left: 50%;
+        transform: translateX(-50%);
+        font-size: 11px;
+        text-align: center;
+        color: white;
+      }
+      .attribution a {
+        color: hsl(228, 45%, 44%);
+      }
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        background-color: hsl(217, 54%, 11%);
+        font-family: "Outfit", sans-serif;
+      }
+
+      div.wrap {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        border-radius: 15px;
+        width: 327px;
+        height: 543px;
+        padding: 24.5px;
+        background-color: hsl(216, 50%, 16%);
+      }
+
+      img.eq {
+        width: 278px;
+        transition: 0.3s;
+      }
+
+      img.eye {
+        position: absolute;
+        display: none;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -300%);
+        transition: 0.3s;
+      }
+
+      div.layer {
+        position: absolute;
+        display: none;
+        width: 278px;
+        height: 278px;
+        background-color: hsl(178, 100%, 50%);
+      }
+
+      div.mainphoto:hover div.layer {
+        display: block;
+        cursor: pointer;
+        opacity: 0.3;
+      }
+
+      div.mainphoto:hover img.eye {
+        display: block;
+      }
+
+      h1 {
+        font-size: 22px;
+        font-weight: 600;
+        margin: 20px 0;
+        color: hsl(0, 0%, 100%);
+        letter-spacing: 1px;
+        transition: 0.3s;
+      }
+
+      h1:hover {
+        color: hsl(178, 100%, 50%);
+        cursor: pointer;
+      }
+
+      p {
+        display: block;
+        width: 278px;
+        height: 52px;
+        margin-bottom: 15px;
+        font-size: 16px;
+        font-weight: 300;
+        line-height: 26px;
+        color: hsl(215, 51%, 70%);
+      }
+
+      div.price {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding-bottom: 20px;
+        width: 278px;
+        height: 40px;
+        font-size: 15px;
+        border-bottom: 1px solid hsl(215, 32%, 27%);
+      }
+
+      div.wrapeth,
+      div.wrapclock {
+        display: flex;
+      }
+
+      img {
+        margin-right: 8px;
+      }
+
+      span.ethereum {
+        font-size: 15px;
+        font-weight: 600;
+        color: hsl(178, 100%, 50%);
+      }
+
+      span.left {
+        font-size: 15px;
+        color: hsl(215, 51%, 70%);
+      }
+
+      div.creator {
+        display: flex;
+        align-items: center;
+        margin-top: 14px;
+        width: 219px;
+        height: 33px;
+        color: hsl(215, 51%, 70%);
+        font-size: 14px;
+        font-weight: 400;
+      }
+
+      img.avatar {
+        width: 33px;
+        margin-right: 15px;
+        border: 1px solid white;
+        border-radius: 50%;
+      }
+
+      span.name {
+        display: inline-block;
+        margin-left: 5px;
+        color: hsl(0, 0%, 100%);
+        transition: 0.3s;
+      }
+
+      span.name:hover {
+        color: hsl(178, 100%, 50%);
+        cursor: pointer;
+      }
+
+      span.line {
+        display: none;
+        position: absolute;
+        box-shadow: -25px 50px 100px hsl(178, 100%, 50%);
+        bottom: 50px;
+        left: 10%;
+        width: 100px;
+        height: 2px;
+        background-color: hsl(178, 100%, 50%);
+        transform: rotate(90deg);
+        transform-origin: top;
+        animation: move 4s ease infinite;
+      } 
+
+      @keyframes move {
+        0% {bottom: 50px; left: 30%; rotate: 100deg;}
+        25% {bottom: 900px; left: 35%; transform: rotate(180deg);}
+        50% {bottom: 900px; left: 65%; transform: rotate(0deg);}
+        75% {bottom: 50px; left: 60%; transform: rotate(90deg);}
+        100% {bottom: 50px; left: 30%; transform: rotate(180deg);}
+      }
+
+      @media (min-width: 1440px) {
+        div.wrap {
+          width: 350px;
+          height: 596px;
+          padding: 24px;
+        }
+
+        div.layer {
+          width: 302px;
+          height: 302px;
+        }
+
+        img.eq {
+          width: 302px;
+        }
+
+        p {
+          width: 302px;
+          height: 52px;
+          margin-bottom: 25px;
+          font-size: 18px;
+        }
+        div.price {
+          margin-bottom: 20px;
+          font-size: 16px;
+        }
+
+        div.creator {
+          width: 230px;
+          height: 33px;
+          font-size: 16px;
+        }
+        span.line {
+          display: block;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="wrap">
+      <div class="mainphoto">
+        <img src="/images/icon-view.svg" alt="" class="eye">
+        <div class="layer"></div>
+        <img class="eq" src="/images/image-equilibrium.jpg" alt="" />
+      </div>
+      <h1>Equilibrium #3429</h1>
+      <p>Our Equilibrium collection promotes balance and calm.</p>
+      <div class="price">
+        <div class="wrapeth">
+          <img class="eth" src="/images/icon-ethereum.svg" alt="" />
+          <span class="ethereum">0.041 ETH</span>
+        </div>
+        <div class="wrapclock">
+          <img class="clock" src="/images/icon-clock.svg" alt="" />
+          <span class="left">3 days left</span>
+        </div>
+      </div>
+      <div class="creator">
+        <img class="avatar" src="/images/image-avatar.png" alt="" />
+        Creation of <span class="name">Jules Wyvern</span>
+      </div>
+    </div>
+    <span class="line"></span>
+    <div class="attribution">
+      Challenge by
+      <a href="https://www.frontendmentor.io?ref=challenge" target="_blank"
+        >Frontend Mentor</a
+      >. Coded by <a href="#">PaanKrab</a>.
+    </div>
+  </body>
+</html>
